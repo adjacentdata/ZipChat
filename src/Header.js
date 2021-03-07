@@ -44,7 +44,6 @@ const HeaderAvatar = styled(Avatar)`
 const HeaderSearchBar = styled.div`
     flex: .3;
     border-radius: 15px;
-    height: 20px;
 `
 
 function Header() {
