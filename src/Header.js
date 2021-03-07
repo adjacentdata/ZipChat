@@ -10,7 +10,7 @@ import {Avatar} from "@material-ui/core"
 //   color: palevioletred;
 // `;
 
-const Header_Main = styled.div`
+const HeaderMain = styled.div`
     display: flex;
     width: 100%;
     padding-top: 15px;
@@ -34,23 +34,32 @@ const Left = styled.div`
     }
 `
 
-const Header_Avatar = styled(Avatar)`
+const HeaderAvatar = styled(Avatar)`
     :hover{
         cursor: pointer;
         color: blue;
     }
 `
+const HeaderSearchBar = styled.div`
+    flex: .4;
+    border: 2px solid black;
+    border-radius: 15px;
+    height: 20px;
+`
 
 function Header() {
     return (
-        <Header_Main>
+        <HeaderMain>
             <Left>
-                <Header_Avatar
+                <HeaderAvatar
                 //TODO onclick
                 />
                 <QueryBuilderIcon/>
             </Left>
-        </Header_Main>
+            <HeaderSearchBar>
+                    <input placeholder="Search"/>
+            </HeaderSearchBar>
+        </HeaderMain>
     )
 }
 
