@@ -12,12 +12,21 @@ import {Avatar} from "@material-ui/core"
 
 const Header_Main = styled.div`
     display: flex;
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    background-color: var(--primary-color);
+    color: white;
 `;
 
 const Left = styled.div`
     display: flex;
     align-items: center;
     margin-left: 15px;
+    flex: .3;
 
     > .MuiSvgIcon-root {
         margin-left: auto;
@@ -26,7 +35,10 @@ const Left = styled.div`
 `
 
 const Header_Avatar = styled(Avatar)`
-
+    :hover{
+        cursor: pointer;
+        color: blue;
+    }
 `
 
 function Header() {
