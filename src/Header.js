@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from "styled-components"
 import QueryBuilderIcon from '@material-ui/icons/QueryBuilder';
+import SearchIcon from '@material-ui/icons/Search';
 import {Avatar} from "@material-ui/core"
 
 // Styled Components Sample
@@ -41,8 +42,7 @@ const HeaderAvatar = styled(Avatar)`
     }
 `
 const HeaderSearchBar = styled.div`
-    flex: .4;
-    border: 2px solid black;
+    flex: .3;
     border-radius: 15px;
     height: 20px;
 `
@@ -57,7 +57,8 @@ function Header() {
                 <QueryBuilderIcon/>
             </Left>
             <HeaderSearchBar>
-                    <input placeholder="Search"/>
+                <SearchIcon/>
+                <input placeholder="Search"/>
             </HeaderSearchBar>
         </HeaderMain>
     )
