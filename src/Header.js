@@ -75,6 +75,7 @@ const Right = styled.div`
     > .MuiSvgIcon-root{
         margin-left: auto;
         margin-right: 35px;
+        color: #d3e0ea;
     }
 
 `;
