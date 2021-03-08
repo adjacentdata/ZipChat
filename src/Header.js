@@ -2,6 +2,7 @@ import React from 'react'
 import styled from "styled-components"
 import QueryBuilderIcon from '@material-ui/icons/QueryBuilder';
 import SearchIcon from '@material-ui/icons/Search';
+import ContactSupportIcon from '@material-ui/icons/ContactSupport';
 import {Avatar} from "@material-ui/core"
 
 // Styled Components Sample
@@ -66,6 +67,9 @@ const HeaderSearchBar = styled.div`
         color: white;
     }
 `
+const Right = styled.div`
+
+`;
 
 function Header() {
     return (
@@ -80,6 +84,9 @@ function Header() {
                 <SearchIcon/>
                 <input placeholder="Search"/>
             </HeaderSearchBar>
+            <Right>
+                <ContactSupportIcon/>
+            </Right>
         </HeaderMain>
     )
 }
