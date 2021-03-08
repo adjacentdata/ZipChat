@@ -21,6 +21,7 @@ const HeaderMain = styled.div`
     position: fixed;
     background-color: var(--primary-color);
     color: white;
+    text-align: center;
 `;
 
 const Left = styled.div`
@@ -42,8 +43,28 @@ const HeaderAvatar = styled(Avatar)`
     }
 `
 const HeaderSearchBar = styled.div`
-    flex: .3;
+    flex: .4;
     border-radius: 15px;
+    border: 1px solid black;
+    color: grey;
+    padding: 0 5px;
+    display: flex;
+    margin-left: 15px;
+    text-align: center;
+
+    > input {
+        border: none;
+        text-align: left;
+        min-width: 45vw;
+        color: white;
+        outline: none;
+        margin-left: 5px;
+        color: #d3e0ea;
+        background-color: var(--primary-color);
+    }
+    > input::placeholder{
+        color: white;
+    }
 `
 
 function Header() {
