@@ -72,6 +72,11 @@ const Right = styled.div`
     flex: .3;
     align-items: flex-end;
 
+    > .MuiSvgIcon-root{
+        margin-left: auto;
+        margin-right: 35px;
+    }
+
 `;
 
 function Header() {
