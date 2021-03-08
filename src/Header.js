@@ -68,6 +68,9 @@ const HeaderSearchBar = styled.div`
     }
 `
 const Right = styled.div`
+    display: flex;
+    flex: .3;
+    align-items: flex-end;
 
 `;
 
