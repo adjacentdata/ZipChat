@@ -1,7 +1,12 @@
 import React from 'react'
-import Options from "../src/Options"
+import Options from "./Options"
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import BorderColorIcon from '@material-ui/icons/BorderColor';
+import MessageIcon from '@material-ui/icons/Message';
+import CommentIcon from '@material-ui/icons/Comment';
+import BookmarkIcon from '@material-ui/icons/Bookmark';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import ScheduleIcon from '@material-ui/icons/Schedule';
 import styled from 'styled-components'
 
 const SidebarWrapper = styled.div`
@@ -55,9 +60,13 @@ function Sidebar() {
                 </SidebarUserInfo>
                 <BorderColorIcon/>
             </SidebarUserHeader>
-            <Options/>
+            <Options Icon={CommentIcon} text="Threads"/>
+            <Options Icon={MessageIcon} text="Mentions"/>
+            <Options Icon={BookmarkIcon} text="Bookmark"/>
+            <Options Icon={FavoriteIcon} text="Favorites"/>
+            <Options Icon={ScheduleIcon} text="Mentions"/>
 
-s
+
         </SidebarWrapper>
     )
 }

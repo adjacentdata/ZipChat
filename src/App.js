@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Header from "./Header"
-import Sidebar from "./Sidebar"
+import Sidebar from "./sidebar/Sidebar"
 import styled from "styled-components"
 
 // Style
