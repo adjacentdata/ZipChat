@@ -8,6 +8,14 @@ const OptionsWrapper = styled.div`
     flex-direction: row;
     align-items: center;
     padding: 5px;
+    :hover{
+        opacity:.5;
+        background-color: grey;
+    }
+
+    > h4 {
+        font-weight:300;
+    }
 `
 const SidebarOption = styled.div`
 

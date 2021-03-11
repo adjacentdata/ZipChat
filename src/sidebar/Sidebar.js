@@ -7,6 +7,8 @@ import CommentIcon from '@material-ui/icons/Comment';
 import BookmarkIcon from '@material-ui/icons/Bookmark';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ScheduleIcon from '@material-ui/icons/Schedule';
+import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import styled from 'styled-components'
 
 const SidebarWrapper = styled.div`
@@ -65,7 +67,8 @@ function Sidebar() {
             <Options Icon={BookmarkIcon} text="Bookmark"/>
             <Options Icon={FavoriteIcon} text="Favorites"/>
             <Options Icon={ScheduleIcon} text="Mentions"/>
-
+            <Options Icon={KeyboardArrowUpIcon} text="Show less"/>
+            <Options Icon={ArrowDownwardIcon} text="Channels"/>
 
         </SidebarWrapper>
     )
