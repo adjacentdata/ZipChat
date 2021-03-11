@@ -1,4 +1,5 @@
 import React from 'react'
+import Options from "../src/Options"
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import BorderColorIcon from '@material-ui/icons/BorderColor';
 import styled from 'styled-components'
@@ -8,6 +9,7 @@ const SidebarWrapper = styled.div`
     min-width: 250px;
     background-color: var(--primary-color);
     display: flex;
+    flex-direction: column;
     border: black solid 2px;
     margin-top: 70px;
     color: white;
@@ -53,6 +55,9 @@ function Sidebar() {
                 </SidebarUserInfo>
                 <BorderColorIcon/>
             </SidebarUserHeader>
+            <Options/>
+
+s
         </SidebarWrapper>
     )
 }
