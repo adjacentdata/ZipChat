@@ -4,6 +4,10 @@ import styled from 'styled-components'
 const OptionsWrapper = styled.div`
     border-top: solid 1px black;
     border-bottom: solid 1px black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 5px;
 `
 const SidebarOption = styled.div`
 
@@ -18,7 +22,6 @@ function Options({Icon, text}) {
                     <span>#</span> {text}
                 </SidebarOption>
             )}
-
         </OptionsWrapper>
     )
 }
