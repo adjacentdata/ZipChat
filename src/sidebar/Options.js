@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { database } from '../firebase_console'
 
 const OptionsWrapper = styled.div`
     display: flex;
@@ -25,12 +26,15 @@ const SidebarOption = styled.div`
 `
 
 function Options({addChannel, Icon, text}) {
-    const handleChannel = () =>{
-
-    }
-
     const openChannel = () => {
 
+    }
+    const handleChannel = () =>{
+        const addedChannel = prompt('New Channel?');
+
+        if(addedChannel) {
+            database.collection("Channels").add({name : addedChannel})
+        };
     }
     return (
         <OptionsWrapper onClick={addChannel ? handleChannel : openChannel }>
