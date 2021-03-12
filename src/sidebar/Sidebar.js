@@ -11,6 +11,8 @@ import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import PlusOneIcon from '@material-ui/icons/PlusOne';
 import styled from 'styled-components'
+import { database } from '../firebase_console'
+import {useCollection} from 'react-firebase-hooks/firestore'
 
 const SidebarWrapper = styled.div`
     max-width: 260px;
@@ -59,6 +61,8 @@ const SidebarUserInfo = styled.div`
 `
 
 function Sidebar() {
+    const [channels, loading, err ] = useCollection(database.collection("Channel"))
+
     return (
         <SidebarWrapper>
             <SidebarUserHeader>
@@ -78,7 +82,10 @@ function Sidebar() {
             <Options Icon={ArrowDownwardIcon} text="Channels"/>
             <hr/>
             <Options Icon={PlusOneIcon} text="Add Channels" addChannel />
-
+            <hr/>
+            {channels?.docs.map(doc => (
+                <Options key={doc.id} text={doc.data().name} />
+            )) }
         </SidebarWrapper>
     )
 }

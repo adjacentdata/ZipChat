@@ -5,6 +5,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import ContactSupportIcon from '@material-ui/icons/ContactSupport';
 import {Avatar} from "@material-ui/core"
 
+
 // Styled Components Sample
 // const Title = styled.h1`
 //   font-size: 1.5em;

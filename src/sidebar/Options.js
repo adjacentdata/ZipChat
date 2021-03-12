@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { database } from '../firebase_console'
+import {useCollection} from 'react-firebase-hooks/firestore'
 
 const OptionsWrapper = styled.div`
     display: flex;
@@ -22,6 +23,8 @@ const OptionsWrapper = styled.div`
     }
 `
 const SidebarOption = styled.div`
+    font-size: 15px;
+    padding-top: 5px;
 
 `
 
@@ -30,10 +33,10 @@ function Options({addChannel, Icon, text}) {
 
     }
     const handleChannel = () =>{
-        const addedChannel = prompt('New Channel?');
+        const addedChannel = prompt('New Channel Name:');
 
         if(addedChannel) {
-            database.collection("Channels").add({name : addedChannel})
+            database.collection("Channel").add({name:addedChannel})
         };
     }
     return (
