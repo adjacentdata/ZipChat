@@ -2,8 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 
 const OptionsWrapper = styled.div`
-    border-top: solid 1px black;
-    border-bottom: solid 1px black;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -16,14 +14,26 @@ const OptionsWrapper = styled.div`
     > h4 {
         font-weight:300;
     }
+
+    > h4 > span {
+        padding: 10px;
+
+    }
 `
 const SidebarOption = styled.div`
 
 `
 
-function Options({Icon, text}) {
+function Options({addChannel, Icon, text}) {
+    const handleChannel = () =>{
+
+    }
+
+    const openChannel = () => {
+
+    }
     return (
-        <OptionsWrapper>
+        <OptionsWrapper onClick={addChannel ? handleChannel : openChannel }>
             {Icon && <Icon fontSize="large" style={{padding: 10}}/>}
             {Icon ? (<h4>{text}</h4>) : (
                 <SidebarOption>

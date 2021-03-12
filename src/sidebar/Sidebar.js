@@ -9,6 +9,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ScheduleIcon from '@material-ui/icons/Schedule';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
+import PlusOneIcon from '@material-ui/icons/PlusOne';
 import styled from 'styled-components'
 
 const SidebarWrapper = styled.div`
@@ -21,17 +22,22 @@ const SidebarWrapper = styled.div`
     margin-top: 70px;
     color: white;
 
+
 `
 const SidebarUserHeader = styled.div`
     display: flex;
     padding: 10px;
     width: 250px;
+    border-bottom: 1px solid black;
     > .MuiSvgIcon-root{
         border-radius:50%;
         font-size: 35px;
         background-color: white;
         color: grey;
         padding: 5px;
+    }
+    > hr {
+        font-weight: 300;
     }
 `
 const SidebarUserInfo = styled.div`
@@ -68,8 +74,10 @@ function Sidebar() {
             <Options Icon={FavoriteIcon} text="Favorites"/>
             <Options Icon={ScheduleIcon} text="Mentions"/>
             <Options Icon={KeyboardArrowUpIcon} text="Show less"/>
+            <hr/>
             <Options Icon={ArrowDownwardIcon} text="Channels"/>
-
+            <hr/>
+            <Options Icon={PlusOneIcon} text="Add Channels" addChannel />
         </SidebarWrapper>
     )
 }
