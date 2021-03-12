@@ -75,9 +75,9 @@ function Sidebar() {
             <Options Icon={ScheduleIcon} text="Mentions"/>
             <Options Icon={KeyboardArrowUpIcon} text="Show less"/>
             <hr/>
-            <Options Icon={ArrowDownwardIcon} text="Channels"/>
-            <hr/>
             <Options Icon={PlusOneIcon} text="Add Channels" addChannel />
+            <hr/>
+            <Options Icon={ArrowDownwardIcon} text="Channels"/>
         </SidebarWrapper>
     )
 }
