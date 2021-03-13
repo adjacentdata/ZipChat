@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Header from "./Header"
 import Sidebar from "./sidebar/Sidebar"
 import styled from "styled-components"
+import Messages from './Messages';
 
 // Style
 
@@ -19,7 +20,7 @@ function App() {
         <AppWrapper>
           <Sidebar/>
           <Switch>
-            <Route path="/" exact></Route>
+            <Route path="/" exact><Messages/></Route>
           </Switch>
         </AppWrapper>
       </Router>
