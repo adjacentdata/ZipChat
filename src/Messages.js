@@ -7,8 +7,9 @@ const MessagesWrapper = styled.div`
 
 function Messages() {
     return (
-        <div>
-        </div>
+        <MessagesWrapper>
+
+        </MessagesWrapper>
     )
 }
 
