@@ -4,19 +4,21 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import InfoIcon from '@material-ui/icons/Info';
 import { useSelector } from 'react-redux';
 import { returnChannelId } from './features/appSlice';
+import InputBox from './InputBox'
 
 const MessagesWrapper = styled.div`
     flex: .4;
     overflow-y: scroll;
     flex-grow: 1;
-    margin-left: 10px;
-    margin-top: 80px;
+    margin-top: 70px;
 `
 const Top = styled.div`
     display: flex;
     justify-content: space-between;
-    border: 1px solid gray;
+    border: 1px solid lightblue;
     padding: 10px;
+    height: 5vh;
+    background-color: #8ac4d0;
 `
 
 const TopRight = styled.div`
@@ -44,6 +46,7 @@ const AllMessages = styled.div`
 `
 
 function Messages() {
+    const channelId = useSelector(returnChannelId)
     return (
         <MessagesWrapper>
             <div>
@@ -59,6 +62,7 @@ function Messages() {
                 <AllMessages>
 
                 </AllMessages>
+                <InputBox channelId={channelId} />
             </div>
         </MessagesWrapper>
     )
