@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { database } from '../firebase_console'
-import {useCollection} from 'react-firebase-hooks/firestore'
-
+import {useDispatch} from 'react-redux'
+import {enter} from '../features/appSlice'
 const OptionsWrapper = styled.div`
     display: flex;
     flex-direction: row;
@@ -28,9 +28,12 @@ const SidebarOption = styled.div`
 
 `
 
-function Options({addChannel, Icon, text}) {
+function Options({addChannel, Icon, text, chatId}) {
+    const dispatch = useDispatch()
     const openChannel = () => {
-
+        if(chatId){
+            dispatch(enter({channelId: chatId}));
+        }
     }
     const handleChannel = () =>{
         const addedChannel = prompt('New Channel Name:');

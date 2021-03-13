@@ -84,7 +84,7 @@ function Sidebar() {
             <Options Icon={PlusOneIcon} text="Add Channels" addChannel />
             <hr/>
             {channels?.docs.map(doc => (
-                <Options key={doc.id} text={doc.data().name} />
+                <Options chatId={doc.id} text={doc.data().name} />
             )) }
         </SidebarWrapper>
     )
