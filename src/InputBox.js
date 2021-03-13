@@ -6,6 +6,11 @@ import SendIcon from '@material-ui/icons/Send';
 const InputBoxWrapper = styled.div``
 
 function InputBox(channelId, channelName) {
+
+    const handleMessageSent = e => {
+        e.preventDefault();
+    }
+
     return (
         <InputBoxWrapper>
             <form>
@@ -18,7 +23,7 @@ function InputBox(channelId, channelName) {
                     defaultValue="Default Value"
                     style={{width: "90%"}}
                 />
-                <Button>
+                <Button hidden type='submit' onClick={handleMessageSent}>
                     <SendIcon/>
                 </Button>
             </form>
