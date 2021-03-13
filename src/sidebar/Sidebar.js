@@ -67,8 +67,8 @@ function Sidebar() {
         <SidebarWrapper>
             <SidebarUserHeader>
                 <SidebarUserInfo>
-                    <h3>Scrotcherino</h3>
-                    <h4><FiberManualRecordIcon/>Scootch Noala</h4>
+                    <h3>JoEthBertQ</h3>
+                    <h4><FiberManualRecordIcon/>JosephEthber Quentonius</h4>
                 </SidebarUserInfo>
                 <BorderColorIcon/>
             </SidebarUserHeader>
