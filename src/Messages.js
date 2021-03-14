@@ -5,6 +5,8 @@ import InfoIcon from '@material-ui/icons/Info';
 import { useSelector } from 'react-redux';
 import { returnChannelId } from './features/appSlice';
 import InputBox from './InputBox'
+import { database } from './firebase_console';
+import {useCollection, useDocument} from 'react-firebase-hooks/firestore'
 
 const MessagesWrapper = styled.div`
     flex: .4;
@@ -47,12 +49,14 @@ const AllMessages = styled.div`
 
 function Messages() {
     const channelId = useSelector(returnChannelId)
+    const [channelDetails] = useCollection(channelId && database.collection('Channel').doc(channelId));
+    const [channelMessages] =  useDocument(channelId && database.collection("Channel").doc(channelId).collection("messages").orderBy("timestamp", "asc"));
     return (
         <MessagesWrapper>
             <div>
                 <Top>
                     <TopLeft>
-                        <h3>Channel Name</h3>
+                        <h3><i>Conference: </i>{channelDetails?.data().name}</h3>
                         <FavoriteBorderIcon/>
                     </TopLeft>
                     <TopRight>
@@ -60,9 +64,19 @@ function Messages() {
                     </TopRight>
                 </Top>
                 <AllMessages>
-
+                    {channelMessages?.docs.map(doc => {
+                        const {message, timestamp, user, userImage} = doc.data();
+                        return
+                        <MainMessage
+                            id = {doc.id}
+                            message= {message}
+                            timestamp={timestamp}
+                            user={user}
+                            userImage={userImage}
+                        />
+                    })}
                 </AllMessages>
-                <InputBox channelId={channelId} />
+                <InputBox channelId={channelId} channelName={channelDetails?.data().name}/>
             </div>
         </MessagesWrapper>
     )
