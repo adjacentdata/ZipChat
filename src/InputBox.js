@@ -1,5 +1,5 @@
 import { Button} from '@material-ui/core'
-import {React, useRef} from 'react'
+import {React, useState} from 'react'
 import styled from 'styled-components'
 import SendIcon from '@material-ui/icons/Send';
 import {database} from './firebase_console'
@@ -12,16 +12,23 @@ const InputBoxWrapper = styled.div`
         justify-content: center;
     }
 
-    >form > input {
-        border: 1px solid lightblue;
-        bottom: 20px;
+    > form > input {
         position: fixed;
+        bottom: 30px;
+        padding: 15px;
+        border: 1px solid lightblue;
+        width: 60%;
+        overflow-y: scroll;
+    }
+
+    > form > button {
+        display: none !important;
     }
 
 `
 
 function InputBox(channelId, channelName) {
-    const messageRef = useRef(null);
+    const [messageRef, setMessageRef] = useState('')
 
     const handleMessageSent = e => {
         e.preventDefault();
@@ -31,7 +38,7 @@ function InputBox(channelId, channelName) {
         }
 
         database.collection('Channel').doc(channelId).collection('messages').add({
-            message: messageRef.current.value,
+            message: messageRef,
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
         })
 
@@ -42,14 +49,10 @@ function InputBox(channelId, channelName) {
         <InputBoxWrapper>
             <form>
                 <input
-                    id="outlined-multiline-static"
-                    label="Enter message here"
-                    variant='outlined'
                     multiline
-                    rows={1}
-                    style={{width: "90%" }}
+                    rows={2}
                 />
-                <Button hidden type='submit' onClick={handleMessageSent}>
+                <Button hidden type='submit' onClick={handleMessageSent} style={{display: "none !important"}}>
                     <SendIcon/>
                 </Button>
             </form>
