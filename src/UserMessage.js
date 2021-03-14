@@ -9,6 +9,7 @@ const UserMessageWrapper = styled.div`
 function UserMessage({message, timestamp, user, userImg}) {
     return (
         <UserMessageWrapper>
+            <img src={userImg} alt=""/>
 
         </UserMessageWrapper>
     )
