@@ -11,7 +11,6 @@ import UserMessage from './UserMessage'
 
 const MessagesWrapper = styled.div`
     flex: .4;
-    overflow-y: scroll;
     flex-grow: 1;
     margin-top: 70px;
 `
@@ -45,7 +44,6 @@ const TopLeft = styled.div`
 `
 
 const AllMessages = styled.div`
-
 `
 
 function Messages() {

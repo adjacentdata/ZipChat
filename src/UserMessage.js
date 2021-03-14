@@ -2,7 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 
 const UserMessageWrapper = styled.div`
-
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    height: auto;
+    border: 1px solid grey;
 `
 const UserInfo =styled.div`
 
@@ -21,5 +25,6 @@ function UserMessage({message, timestamp, username, userImg}) {
         </UserMessageWrapper>
     )
 }
+
 
 export default UserMessage

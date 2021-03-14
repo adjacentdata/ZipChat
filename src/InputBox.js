@@ -19,7 +19,7 @@ const InputBoxWrapper = styled.div`
         padding: 15px;
         border: 1px solid lightblue;
         width: 60%;
-        overflow-y: scroll;
+
     }
 
     > form > button {
@@ -42,7 +42,7 @@ function InputBox(channelId, channelName) {
         database.collection("Channel").doc(channelId.channelId).collection('messages').add({
             message: message,
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-            username: 'Troy Bolton',
+            username: 'BF',
             userImg: ""
         })
 
