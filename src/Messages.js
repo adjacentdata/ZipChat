@@ -7,6 +7,7 @@ import { returnChannelId } from './features/appSlice';
 import InputBox from './InputBox'
 import { database } from './firebase_console';
 import {useCollection, useDocument} from 'react-firebase-hooks/firestore'
+import UserMessage from './UserMessage'
 
 const MessagesWrapper = styled.div`
     flex: .4;
@@ -65,15 +66,15 @@ function Messages() {
                 </Top>
                 <AllMessages>
                     {channelMessages?.docs.map(doc => {
-                        const {message, timestamp, user, userImage} = doc.data();
-                        return
-                        <MainMessage
+                        const {message, timestamp, username, userImage} = doc.data();
+                        return(
+                        <UserMessage
                             id = {doc.id}
                             message= {message}
                             timestamp={timestamp}
-                            user={user}
-                            userImage={userImage}
-                        />
+                            username={username}
+                            userImg={userImage}
+                        />)
                     })}
                 </AllMessages>
                 <InputBox channelId={channelId} channelName={channelDetails?.data().name}/>

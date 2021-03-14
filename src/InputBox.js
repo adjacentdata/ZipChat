@@ -42,7 +42,7 @@ function InputBox(channelId, channelName) {
         database.collection("Channel").doc(channelId.channelId).collection('messages').add({
             message: message,
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-            user: 'Troy Bolton',
+            username: 'Troy Bolton',
             userImg: ""
         })
 
