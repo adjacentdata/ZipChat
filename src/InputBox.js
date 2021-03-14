@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import SendIcon from '@material-ui/icons/Send';
 import {database} from './firebase_console'
 import firebase from 'firebase'
+
 const InputBoxWrapper = styled.div`
     border-radius: 2px;
     > form {
@@ -28,22 +29,28 @@ const InputBoxWrapper = styled.div`
 `
 
 function InputBox(channelId, channelName) {
-    const [messageRef, setMessageRef] = useState('')
+    const [message, setMessage] = useState("")
 
-    const handleMessageSent = e => {
-        e.preventDefault();
+    const handleMessageSent = (e) => {
+        e.preventDefault()
 
-        if (channelId) {
+        if (!channelId) {
             return false;
         }
 
-        database.collection('Channel').doc(channelId).collection('messages').add({
-            message: messageRef,
-            timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        console.log(channelId)
+        database.collection("Channel").doc(channelId.channelId).collection('messages').add({
+            message: message,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+            user: 'Troy Bolton',
+            userImg: ""
         })
 
+        setMessage("")
 
     }
+
+
 
     return (
         <InputBoxWrapper>
@@ -51,6 +58,8 @@ function InputBox(channelId, channelName) {
                 <input
                     multiline
                     rows={2}
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
                 />
                 <Button hidden type='submit' onClick={handleMessageSent} style={{display: "none !important"}}>
                     <SendIcon/>
