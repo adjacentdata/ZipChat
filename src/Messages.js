@@ -18,8 +18,8 @@ const Top = styled.div`
     display: flex;
     justify-content: space-between;
     border: 1px solid lightblue;
-    padding: 10px;
-    height: 5vh;
+    padding: 13px;
+    height: 7vh;
     background-color: #8ac4d0;
 `
 
