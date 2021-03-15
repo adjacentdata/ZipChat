@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import styled from 'styled-components'
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import InfoIcon from '@material-ui/icons/Info';
@@ -10,9 +10,11 @@ import {useCollection, useDocument} from 'react-firebase-hooks/firestore'
 import UserMessage from './UserMessage'
 
 const MessagesWrapper = styled.div`
-    flex: .4;
-    flex-grow: 1;
+    flex: .3;
     margin-top: 70px;
+    overflow-y: scroll;
+    height: 100vh;
+    flex-grow: 1;
 `
 const Top = styled.div`
     display: flex;
@@ -42,14 +44,19 @@ const TopLeft = styled.div`
         font-size: 15px;
     }
 `
+const ChatEnd = styled.div`
+    padding: 200px;
+`
 
 const AllMessages = styled.div`
+
 `
 
 function Messages() {
     const channelId = useSelector(returnChannelId)
     const [channelDetails] = useCollection(channelId && database.collection('Channel').doc(channelId));
     const [channelMessages] =  useDocument(channelId && database.collection("Channel").doc(channelId).collection("messages").orderBy("timestamp", "asc"));
+    const endRef = useRef(null)
     return (
         <MessagesWrapper>
             <div>
@@ -74,6 +81,7 @@ function Messages() {
                             userImg={userImg}
                         />)
                     })}
+                    <ChatEnd ref={endRef}/>
                 </AllMessages>
                 <InputBox channelId={channelId} channelName={channelDetails?.data().name}/>
             </div>

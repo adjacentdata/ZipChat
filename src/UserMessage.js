@@ -8,7 +8,7 @@ const UserMessageWrapper = styled.div`
     height: auto;
     border: 1px solid grey;
     > img {
-        height: 30px;
+        height: 30p
     }
 `
 const UserInfo =styled.div`
