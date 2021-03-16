@@ -8,18 +8,18 @@ import firebase from 'firebase'
 const InputBoxWrapper = styled.div`
     border-radius: 2px;
     > form {
-        position: relative;
+        position: absolute;
         display: flex;
-        justify-content: center;
+        flex: .4;
     }
 
     > form > input {
         position: fixed;
-        bottom: 30px;
+        bottom: 0px;
         padding: 15px;
         border: 1px solid lightblue;
-        width: 60%;
-
+        width: 100%;
+        margin-bottom:0px;
     }
 
     > form > button {
@@ -38,7 +38,6 @@ function InputBox(channelId, channelName) {
             return false;
         }
 
-        console.log(channelId)
         database.collection("Channel").doc(channelId.channelId).collection('messages').add({
             message: message,
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),

@@ -1,4 +1,4 @@
-import React, { useRef} from 'react'
+import React, { useEffect, useRef, useState} from 'react'
 import styled from 'styled-components'
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import InfoIcon from '@material-ui/icons/Info';
@@ -8,11 +8,11 @@ import InputBox from './InputBox'
 import { database } from './firebase_console';
 import {useCollection, useDocument} from 'react-firebase-hooks/firestore'
 import UserMessage from './UserMessage'
+import CancelIcon from '@material-ui/icons/Cancel';
 
 const MessagesWrapper = styled.div`
     flex: .3;
     margin-top: 70px;
-    overflow-y: scroll;
     flex-grow: 1;
 `
 const Top = styled.div`
@@ -45,12 +45,18 @@ const TopLeft = styled.div`
     }
 `
 const ChatEnd = styled.div`
-    padding: 200px;
+    padding: 100px;
     border: 1px green solid;
 
 `
 
 const AllMessages = styled.div`
+    height: 77vh;
+    overflow-y: scroll;
+`
+const NewMessage = styled.div`
+    display: flex;
+    align-items: center;
 
 `
 
@@ -58,7 +64,6 @@ function Messages() {
     const channelId = useSelector(returnChannelId)
     const [channelDetails] = useCollection(channelId && database.collection('Channel').doc(channelId));
     const [channelMessages, loading] =  useDocument(channelId && database.collection("Channel").doc(channelId).collection("messages").orderBy("timestamp", "asc"));
-
     return (
         <MessagesWrapper>
             <Top>
@@ -82,9 +87,9 @@ function Messages() {
                             userImg={userImg}
                         />)
                     })}
-                <ChatEnd></ChatEnd>
             </AllMessages>
             <InputBox channelId={channelId} channelName={channelDetails?.data().name}/>
+
         </MessagesWrapper>
     )
 }

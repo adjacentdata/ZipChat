@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const UserMessageWrapper = styled.div`
     display: flex;
     align-items: center;
-    padding: 15px;
+    padding: 10px;
     height: auto;
     border: 1px solid grey;
     > img {
@@ -12,10 +12,17 @@ const UserMessageWrapper = styled.div`
     }
 `
 const UserInfo =styled.div`
+    > h3{
+        font-size: 12px;
+    }
     > h3 > span {
-        font-size: 15px;
+        font-size: 10px;
         color: blue;
         font-weight: 50
+    }
+
+    > p {
+        font-size: 10px;
     }
 `
 
