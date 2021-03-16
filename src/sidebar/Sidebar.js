@@ -21,9 +21,8 @@ const SidebarWrapper = styled.div`
     display: flex;
     flex-direction: column;
     border: black solid 2px;
-    margin-top: 70px;
+    margin-top: 0px;
     color: white;
-
 
 `
 const SidebarUserHeader = styled.div`
@@ -61,7 +60,7 @@ const SidebarUserInfo = styled.div`
 `
 
 function Sidebar() {
-    const [channels, loading, err ] = useCollection(database.collection("Channel"))
+    const [channels] = useCollection(database.collection("Channel"))
 
     return (
         <SidebarWrapper>

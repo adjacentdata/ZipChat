@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef} from 'react'
 import styled from 'styled-components'
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import InfoIcon from '@material-ui/icons/Info';
@@ -13,7 +13,6 @@ const MessagesWrapper = styled.div`
     flex: .3;
     margin-top: 70px;
     overflow-y: scroll;
-    height: 100vh;
     flex-grow: 1;
 `
 const Top = styled.div`
@@ -23,6 +22,7 @@ const Top = styled.div`
     padding: 13px;
     height: 7vh;
     background-color: #8ac4d0;
+    position:relative;
 `
 
 const TopRight = styled.div`
@@ -45,7 +45,8 @@ const TopLeft = styled.div`
     }
 `
 const ChatEnd = styled.div`
-    padding: 200px;
+    padding: 20px;
+    border: 1px green solid;
 `
 
 const AllMessages = styled.div`
@@ -54,34 +55,28 @@ const AllMessages = styled.div`
 
 function Messages() {
     const channelId = useSelector(returnChannelId)
-    const [channelDetails, loading] = useCollection(channelId && database.collection('Channel').doc(channelId));
-    const [channelMessages] =  useDocument(channelId && database.collection("Channel").doc(channelId).collection("messages").orderBy("timestamp", "asc"));
     const endRef = useRef(null)
+    const [channelDetails] = useCollection(channelId && database.collection('Channel').doc(channelId));
+    const [channelMessages, loading] =  useDocument(channelId && database.collection("Channel").doc(channelId).collection("messages").orderBy("timestamp", "asc"));
 
-    useEffect(() => {
-        endRef?.current?.scrollIntoView({
-            behavior: "smooth",
-        });
-
-    }, [channelId, loading])
     return (
         <MessagesWrapper>
-            <div>
-                <Top>
-                    <TopLeft>
-                        <h3><i>Conference: </i>{channelDetails?.data().name}</h3>
-                        <FavoriteBorderIcon/>
-                    </TopLeft>
-                    <TopRight>
-                        <p><InfoIcon/>Info</p>
-                    </TopRight>
-                </Top>
-                <AllMessages>
+            <Top>
+                <TopLeft>
+                    <h3><i>Conference: </i>{channelDetails?.data().name}</h3>
+                    <FavoriteBorderIcon/>
+                </TopLeft>
+                <TopRight>
+                    <p><InfoIcon/>Info</p>
+                </TopRight>
+            </Top>
+            <AllMessages>
+                <div>
                     {channelMessages?.docs.map(doc => {
                         const {message, timestamp, username, userImg} = doc.data();
                         return(
                         <UserMessage
-                            id = {doc.id}
+                            key = {doc.id}
                             message= {message}
                             timestamp={timestamp}
                             username={username}
@@ -89,9 +84,11 @@ function Messages() {
                         />)
                     })}
                     <ChatEnd ref={endRef}/>
-                </AllMessages>
-                <InputBox channelId={channelId} channelName={channelDetails?.data().name}/>
-            </div>
+                </div>
+
+            </AllMessages>
+            <InputBox channelId={channelId} channelName={channelDetails?.data().name}/>
+
         </MessagesWrapper>
     )
 }

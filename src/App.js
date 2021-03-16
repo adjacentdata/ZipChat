@@ -10,7 +10,9 @@ import Messages from './Messages';
 
 const AppWrapper = styled.div`
   height: 200vh;
-  display: flex;
+  display:flex;
+  flex-direction: row;
+  overflow: none;
 `
 function App() {
   return (
@@ -19,9 +21,9 @@ function App() {
       <Header/>
         <AppWrapper>
           <Sidebar/>
-          <Switch>
-            <Route path="/" exact><Messages/></Route>
-          </Switch>
+            <Switch>
+              <Route path="/" exact><Messages/></Route>
+            </Switch>
         </AppWrapper>
       </Router>
     </div>
