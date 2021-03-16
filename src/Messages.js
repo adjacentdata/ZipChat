@@ -45,8 +45,9 @@ const TopLeft = styled.div`
     }
 `
 const ChatEnd = styled.div`
-    padding: 20px;
+    padding: 200px;
     border: 1px green solid;
+
 `
 
 const AllMessages = styled.div`
@@ -55,7 +56,6 @@ const AllMessages = styled.div`
 
 function Messages() {
     const channelId = useSelector(returnChannelId)
-    const endRef = useRef(null)
     const [channelDetails] = useCollection(channelId && database.collection('Channel').doc(channelId));
     const [channelMessages, loading] =  useDocument(channelId && database.collection("Channel").doc(channelId).collection("messages").orderBy("timestamp", "asc"));
 
@@ -71,7 +71,6 @@ function Messages() {
                 </TopRight>
             </Top>
             <AllMessages>
-                <div>
                     {channelMessages?.docs.map(doc => {
                         const {message, timestamp, username, userImg} = doc.data();
                         return(
@@ -83,12 +82,9 @@ function Messages() {
                             userImg={userImg}
                         />)
                     })}
-                    <ChatEnd ref={endRef}/>
-                </div>
-
+                <ChatEnd></ChatEnd>
             </AllMessages>
             <InputBox channelId={channelId} channelName={channelDetails?.data().name}/>
-
         </MessagesWrapper>
     )
 }
