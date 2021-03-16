@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useEffect } from 'react'
 import styled from 'styled-components'
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import InfoIcon from '@material-ui/icons/Info';
@@ -54,9 +54,16 @@ const AllMessages = styled.div`
 
 function Messages() {
     const channelId = useSelector(returnChannelId)
-    const [channelDetails] = useCollection(channelId && database.collection('Channel').doc(channelId));
+    const [channelDetails, loading] = useCollection(channelId && database.collection('Channel').doc(channelId));
     const [channelMessages] =  useDocument(channelId && database.collection("Channel").doc(channelId).collection("messages").orderBy("timestamp", "asc"));
     const endRef = useRef(null)
+
+    useEffect(() => {
+        endRef?.current?.scrollIntoView({
+            behavior: "smooth",
+        });
+
+    }, [channelId, loading])
     return (
         <MessagesWrapper>
             <div>
