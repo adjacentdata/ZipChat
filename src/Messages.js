@@ -39,7 +39,7 @@ const TopLeft = styled.div`
     display: flex;
     > h4 {
         display: flex;
-    }
+    }n
     > h4 > .MuiSvgIcon-root {
         font-size: 15px;
     }
