@@ -26,10 +26,9 @@ const UserInfo =styled.div`
     }
 `
 
-function UserMessage({message, timestamp, username, userImg}) {
+function UserMessage({message, timestamp, username}) {
     return (
         <UserMessageWrapper>
-            <img src={userImg} alt=""/>
             <UserInfo>
                 <h3>
                     {username} <span>{new Date(timestamp?.toDate()).toUTCString()}</span>

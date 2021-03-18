@@ -77,14 +77,13 @@ function Messages() {
             </Top>
             <AllMessages>
                     {channelMessages?.docs.map(doc => {
-                        const {message, timestamp, username, userImg} = doc.data();
+                        const {message, timestamp, username} = doc.data();
                         return(
                         <UserMessage
                             key = {doc.id}
                             message= {message}
                             timestamp={timestamp}
                             username={username}
-                            userImg={userImg}
                         />)
                     })}
             </AllMessages>
