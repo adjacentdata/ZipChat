@@ -1,6 +1,9 @@
 # Work in progress
 
-## AWS will be added soon. 
+Goals:
+1. Integrate AWS Amplify
+2. Download dependencies 
+3. Improve Front End 
 
 ## This projects was inspired by Slack's design. 
 
